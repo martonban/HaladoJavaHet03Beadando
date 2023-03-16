@@ -88,22 +88,23 @@ public class Validator {
     }
 
     public boolean isThatValidDate(String date) {
-        if(!isDataEmpty(date)){
+        if(isDataEmpty(date)){
+            return false;
+        }else{
             try {
                 LocalDate finalData = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy.MM.dd"));
             } catch (DateTimeParseException e) {
                 return false;
             }
             return true;
-        }else{
-            return false;
         }
     }
 
     public boolean isValidBoolean(String data){
-            if(!isDataEmpty(data)){
+            if(isDataEmpty(data)){
                 return false;
             }
+
             if(data.equals("true") || data.equals("false")){
                 return true;
             }else{
@@ -125,7 +126,7 @@ public class Validator {
     }
 
     public boolean isDataEmpty(String data){
-        if(data == null || !data.trim().isEmpty()) {
+        if(data == null || data.trim().isEmpty()) {
             return true;
         }
         return false;
