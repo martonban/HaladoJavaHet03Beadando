@@ -1,4 +1,4 @@
-package validation;
+package hu.me.java;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -78,7 +78,7 @@ public class Validator {
     -------------------------------------------------
     */
 
-    private boolean isThatValidInteger(String testData){
+    public boolean isThatValidInteger(String testData){
         try{
             int finalData = Integer.parseInt(testData);
         }catch (NumberFormatException e){
@@ -87,7 +87,7 @@ public class Validator {
         return true;
     }
 
-    private boolean isThatValidDate(String date) {
+    public boolean isThatValidDate(String date) {
         try {
             LocalDate finalData = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy.MM.dd"));
         } catch (DateTimeParseException e) {
@@ -96,7 +96,7 @@ public class Validator {
         return true;
     }
 
-    private boolean isValidBoolean(String data){
+    public boolean isValidBoolean(String data){
             if(!isDataEmpty(data)){
                 return false;
             }
@@ -107,7 +107,7 @@ public class Validator {
             }
     }
 
-    private boolean dayOfWeekValidation(String data){
+    public boolean dayOfWeekValidation(String data){
         // If data is not integer return false
         if(!isThatValidInteger(data)){
             return false;
@@ -120,7 +120,7 @@ public class Validator {
         }
     }
 
-    private boolean isDataEmpty(String data){
+    public boolean isDataEmpty(String data){
         if(data == null || !data.trim().isEmpty()) {
             return true;
         }
