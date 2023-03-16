@@ -88,12 +88,16 @@ public class Validator {
     }
 
     public boolean isThatValidDate(String date) {
-        try {
-            LocalDate finalData = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy.MM.dd"));
-        } catch (DateTimeParseException e) {
+        if(!isDataEmpty(date)){
+            try {
+                LocalDate finalData = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+            } catch (DateTimeParseException e) {
+                return false;
+            }
+            return true;
+        }else{
             return false;
         }
-        return true;
     }
 
     public boolean isValidBoolean(String data){

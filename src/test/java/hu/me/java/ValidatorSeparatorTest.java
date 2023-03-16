@@ -25,27 +25,34 @@ public class ValidatorSeparatorTest {
     }
 
     @Test
-    public void isThatValidInteger_StringIsNotANumber() {
+    public void isThatValidInteger_StringIsNotANumberTest() {
         String testString = "dasd";
         boolean testResult = validator.isThatValidInteger(testString);
         assertEquals(false, testResult );
     }
 
     @Test
-    public void isThatValidInteger_StringIsADouble() {
+    public void isThatValidInteger_StringIsADoubleTest() {
         String testString = "8.8";
         boolean testResult = validator.isThatValidInteger(testString);
         assertEquals(false, testResult );
     }
 
     @Test
-    public void isThatValidInteger_StringIsValid() {
+    public void isThatValidInteger_StringIsValidTest() {
         String testString = "8";
         boolean testResult = validator.isThatValidInteger(testString);
         assertEquals(true, testResult );
     }
 
+    @Test
+    public void isThatValidDate_StringIsNullTest() {
+        String testString = null;
+        boolean testResult = validator.isThatValidDate(testString);
+        assertEquals(false, testResult );
+    }
 
-    
+
+
 
 }
